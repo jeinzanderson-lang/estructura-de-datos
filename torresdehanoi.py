@@ -36,7 +36,7 @@ def hanoi(n, origen, destino, auxiliar):
 hanoi(3, "A", "C", "B")
 
 #con for
-def hanoi_for(n, origen, destino, auxiliar):
+def hanoi(n, origen, destino, auxiliar):
     movimientos = []
     
     def mover(n, origen, destino, auxiliar):
@@ -44,10 +44,13 @@ def hanoi_for(n, origen, destino, auxiliar):
         if n == 0:
             return
         
+        # Mover n-1 discos a la torre auxiliar
         mover(n - 1, origen, auxiliar, destino)
         
+        # Mover el disco n al destino
         movimientos.append(f"Mover disco {n} de {origen} a {destino}")
         
+        # Mover los n-1 discos desde auxiliar a destino
         mover(n - 1, auxiliar, destino, origen)
     
     mover(n, origen, destino, auxiliar)
@@ -63,22 +66,6 @@ def hanoi_for(n, origen, destino, auxiliar):
         else:
             print("✘ Error en la cantidad de movimientos.")
 
-hanoi_for(3, "A", "C", "B")
 
-#con recursividad
-def hanoi_recursivo(n, origen, destino, auxiliar):
-    # Caso base: no hay discos que mover
-    if n == 0:
-        return
-    
-    # Mover n-1 discos a la torre auxiliar
-    hanoi_recursivo(n - 1, origen, auxiliar, destino)
-    
-    # Mover disco n al destino
-    print(f"Mover disco {n} de {origen} a {destino}")
-    
-    # Mover n-1 discos desde auxiliar al destino
-    hanoi_recursivo(n - 1, auxiliar, destino, origen)
 
-# Prueba con 3 discos
-hanoi_recursivo(3, "A", "C", "B")
+hanoi(3, "A", "C", "B")
