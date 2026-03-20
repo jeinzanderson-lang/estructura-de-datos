@@ -6,4 +6,4 @@ class Vehiculo:
         self.tipo = tipo 
 
     def mostrar_informacion(self) -> str:
-        return f"{self.marca} {self.modelo} ({self.año})"
+        return f"{self.marca} {self.modelo} ({self.anio})"
